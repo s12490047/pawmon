@@ -323,7 +323,7 @@
     background:linear-gradient(135deg,var(--r1,#fff),#fff 72%);
     border:1.5px solid var(--r3,#E8D3C0);border-radius:20px;padding:.55rem;
     cursor:pointer;transition:transform .18s,box-shadow .18s;overflow:hidden;
-    box-shadow:0 4px 12px rgba(93,62,38,.06);
+    box-shadow:0 4px 12px rgba(93,62,38,.06);flex:0 0 auto;
   }
   .animal-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(93,62,38,.14)}
   .card-media{
@@ -473,6 +473,73 @@
   .fav-large.is-fav{color:#3D322B;background:linear-gradient(135deg,#FFB3C6,#F27A98);box-shadow:0 10px 24px rgba(242,122,152,.32)}
   .modal-note{font-size:.68rem;color:#7A6657;margin:.75rem 0 0;line-height:1.6;text-align:center}
 
+  /* ---------- upload ---------- */
+  .upload-view{padding-block:2rem 3.5rem}
+  .upload-head{text-align:center;max-width:38rem;margin:0 auto 1.5rem}
+  .upload-head h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin-bottom:.35rem;line-height:1.25}
+  .upload-head p{color:var(--muted);font-size:.9rem;margin:0}
+  .upload-form{width:min(820px,100%);margin-inline:auto;padding:1.35rem;position:relative}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .field{display:flex;flex-direction:column;gap:.35rem;font-size:.8rem;font-weight:800;color:var(--muted)}
+  .field input,.field select,.field textarea{
+    width:100%;border:1.5px solid #EADCCD;border-radius:13px;background:#FFFBF4;
+    padding:.62rem .75rem;font:inherit;font-size:.88rem;font-weight:500;color:var(--ink);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:#F0B98B;box-shadow:0 0 0 4px rgba(242,140,75,.12);background:#fff;
+  }
+  .field textarea{min-height:104px;resize:vertical;line-height:1.6}
+  .field small{font-size:.68rem;font-weight:600;color:#8A7361}
+  .field-full{grid-column:1/-1}
+  .radio-row{display:flex;gap:.5rem}
+  .radio-row label{
+    flex:1;display:flex;align-items:center;justify-content:center;gap:.35rem;cursor:pointer;
+    background:#FFFBF4;border:1.5px solid #EADCCD;border-radius:13px;padding:.55rem .7rem;
+    font-weight:800;color:#6E5C4F;transition:.15s;
+  }
+  .radio-row label:has(input:checked){background:#FFF0DF;border-color:#F0B98B;color:var(--orange-deep)}
+  .radio-row input{width:auto;accent-color:var(--orange-deep);margin:0;padding:0;border:0;background:none;box-shadow:none}
+  .image-source{display:flex;gap:.25rem;background:#F9F0E5;border-radius:999px;padding:3px;width:max-content;max-width:100%}
+  .image-source button{
+    border:0;background:transparent;border-radius:999px;padding:.4rem .8rem;
+    font-size:.78rem;font-weight:800;color:var(--muted);transition:.15s;
+  }
+  .image-source button.active{background:#fff;color:var(--orange-deep);box-shadow:0 2px 8px rgba(93,62,38,.12)}
+  .image-pane{margin-top:.6rem}
+  .file-input{
+    width:100%;padding:.6rem;background:#F9F0E5;border:1.5px dashed #E3CDB6;
+    border-radius:13px;font-size:.78rem;color:var(--muted);
+  }
+  .file-input::file-selector-button{
+    border:0;background:linear-gradient(135deg,#FFC07A,#F28C4B);color:#3D322B;
+    border-radius:999px;padding:.35rem .8rem;margin-right:.6rem;font:inherit;font-weight:800;cursor:pointer;
+  }
+  .file-name{display:block;font-size:.7rem;color:#7A6657;margin-top:.3rem}
+  .upload-preview{
+    position:relative;width:150px;height:112px;margin-top:.65rem;border-radius:14px;overflow:hidden;
+    border:1px dashed #E3CDB6;background:#F7EDE1;display:grid;place-items:center;
+    color:#8A7361;font-size:.7rem;font-weight:700;isolation:isolate;
+  }
+  .upload-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .upload-preview .img-fallback{font-size:2rem}
+  .upload-preview img.broken{display:none}
+  .rarity-box{
+    display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;background:#FFF6EA;
+    border:1px dashed #E9CFB2;border-radius:16px;padding:.75rem .9rem;margin-top:1rem;
+  }
+  .rarity-box > span{font-size:.7rem;font-weight:900;letter-spacing:.1em;color:var(--muted)}
+  .rarity-badge{
+    display:inline-block;font-family:"Baloo 2",sans-serif;font-size:.9rem;font-weight:800;
+    letter-spacing:.08em;padding:.18rem .7rem;border-radius:8px;background:#F1E4D5;color:#77655A;
+  }
+  .rarity-badge.rarity-SSR,.rarity-badge.rarity-SR,.rarity-badge.rarity-UR,.rarity-badge.rarity-R,.rarity-badge.rarity-N{
+    background:linear-gradient(135deg,var(--r1),var(--r2));color:var(--r-ink);
+  }
+  .rarity-box p{margin:0;font-size:.74rem;font-weight:700;color:#6E5C4F;flex:1 1 260px}
+  .form-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.1rem}
+  .form-note{font-size:.7rem;color:#7A6657;margin:.8rem 0 0;line-height:1.6}
+  .custom-tag{font-size:.62rem;font-weight:900;color:var(--orange-deep);background:#FFF1D9;padding:.08rem .42rem;border-radius:99px}
+
   /* ---------- toast + footer ---------- */
   .toast{
     position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,20px);z-index:120;
@@ -511,10 +578,11 @@
   }
   @media(max-width:640px){
     .wrap{width:min(1180px,93vw)}
-    .topbar-inner{min-height:62px}
+    .topbar-inner{min-height:62px;gap:.45rem}
     .logo-sub{display:none}
     .logo-name{font-size:1.4rem}
-    .nav-btn{padding:.42rem .5rem;font-size:.8rem}
+    .nav{gap:.1rem;min-width:0;justify-content:flex-end}
+    .nav-btn{white-space:nowrap;padding:.42rem .32rem;font-size:.74rem;gap:.2rem}
     .hero{padding-top:2.2rem}
     .hero h1{font-size:2.15rem}
     .hero-stats{gap:1.2rem}
@@ -535,12 +603,16 @@
     .modal-backdrop{padding:.6rem}
     .modal-media{min-height:220px;max-height:280px}
     .modal-info h2{font-size:1.6rem}
+    .form-grid{grid-template-columns:1fr}
+    .field-full{grid-column:auto}
+    .upload-form{padding:1rem}
+    .upload-preview{width:100%;height:160px}
     .footer-inner{flex-direction:column}
   }
   @media(max-width:400px){
     .logo-name{font-size:1.2rem}
     .logo-paw{font-size:1.3rem}
-    .nav-btn{padding:.38rem .32rem;font-size:.74rem}
+    .nav-btn{padding:.38rem .24rem;font-size:.7rem;gap:.15rem}
     .nav-count{min-width:1.15rem;height:1.15rem;font-size:.62rem}
     .hero h1{font-size:1.9rem}
     .hero-stats{gap:.9rem}
@@ -564,6 +636,7 @@
       <button class="nav-btn" data-nav="home">首頁</button>
       <button class="nav-btn" data-nav="map">探索地圖</button>
       <button class="nav-btn" data-nav="collection">我的圖鑑 <span class="nav-count" id="navFavCount">0</span></button>
+      <button class="nav-btn" data-nav="upload">新增浪浪</button>
     </nav>
   </div>
 </header>
@@ -580,7 +653,7 @@
           <button class="btn-ghost" data-nav="collection">打開我的圖鑑</button>
         </div>
         <ul class="hero-stats">
-          <li><b>36</b><span>示範浪浪</span></li>
+          <li><b id="statAnimals">36</b><span>浪浪角色</span></li>
           <li><b>6</b><span>直轄市</span></li>
           <li><b>5</b><span>種稀有度</span></li>
         </ul>
@@ -621,7 +694,7 @@
     <div class="wrap">
       <div class="notice">
         <span class="notice-icon" aria-hidden="true">💡</span>
-        <p style="margin:0"><b>關於資料：</b>本網站為課程專題，36 位浪浪皆為<b>示範用虛構角色</b>，並非真實待認養動物。稀有度與可愛度、親近度為遊戲化設計，不代表動物的生命價值、領養優先順序或實際身價。若未來介接真實資料，將標註來源與更新日期。</p>
+        <p style="margin:0"><b>關於資料：</b>本網站為課程專題，內建 36 位浪浪皆為<b>示範用虛構角色</b>，並非真實待認養動物。稀有度與可愛度、親近度為遊戲化設計，不代表動物的生命價值、領養優先順序或實際身價。你透過「新增浪浪」建立的資料只存在此瀏覽器，也不代表真實認養資訊。</p>
       </div>
     </div>
   </section>
@@ -673,6 +746,83 @@
     </div>
   </section>
 
+  <section class="view upload-view" id="view-upload" hidden>
+    <div class="wrap">
+      <div class="upload-head">
+        <p class="eyebrow" style="justify-content:center">Add a Stray</p>
+        <h1>新增一隻浪浪</h1>
+        <p>建立一張只存在你瀏覽器裡的卡牌，送出後會直接放進對應城市的圖鑑。</p>
+      </div>
+
+      <form class="panel upload-form" id="uploadForm" novalidate>
+        <div class="form-grid">
+          <label class="field">名稱 *
+            <input id="upName" type="text" required maxlength="20" placeholder="例如：小橘" autocomplete="off">
+          </label>
+
+          <div class="field">
+            <span>類型 *</span>
+            <div class="radio-row" role="radiogroup" aria-label="動物類型">
+              <label><input type="radio" name="upType" value="貓" required> 🐱 貓咪</label>
+              <label><input type="radio" name="upType" value="狗" required> 🐶 狗狗</label>
+            </div>
+          </div>
+
+          <label class="field">可愛度 *
+            <select id="upCute" required></select>
+          </label>
+
+          <label class="field">親近度 *
+            <select id="upFriend" required></select>
+          </label>
+
+          <label class="field">出沒縣市 *
+            <select id="upCity" required></select>
+          </label>
+
+          <label class="field">出沒行政區 *
+            <input id="upDistrict" type="text" list="districtOptions" required maxlength="10" placeholder="例如：大安區" autocomplete="off">
+            <datalist id="districtOptions"></datalist>
+          </label>
+
+          <div class="field field-full">
+            <span>圖片 *</span>
+            <div class="image-source" role="group" aria-label="圖片來源">
+              <button type="button" class="active" data-img-mode="file" aria-pressed="true">上傳檔案</button>
+              <button type="button" data-img-mode="url" aria-pressed="false">圖片網址</button>
+            </div>
+            <div class="image-pane" id="filePane">
+              <input class="file-input" id="upFile" type="file" accept="image/*" required aria-label="上傳圖片檔案">
+              <span class="file-name" id="fileName"></span>
+            </div>
+            <div class="image-pane" id="urlPane" hidden>
+              <input id="upUrl" type="url" inputmode="url" maxlength="2000" placeholder="https://example.com/photo.jpg" aria-label="圖片網址">
+            </div>
+            <div class="upload-preview" id="uploadPreview" aria-live="polite"><span class="preview-empty">尚未選擇圖片</span></div>
+            <small>檔案會壓縮成 800px JPEG 後存進 LocalStorage；也可貼上 https 圖片網址。</small>
+          </div>
+
+          <label class="field field-full">簡介 *
+            <textarea id="upDesc" required maxlength="200" placeholder="說說牠的個性、外觀，或你遇見牠的故事…"></textarea>
+            <small>最多 200 字</small>
+          </label>
+        </div>
+
+        <div class="rarity-box">
+          <span>系統分配稀有度</span>
+          <b class="rarity-badge" id="rarityPreview">—</b>
+          <p id="rarityWhy">選好可愛度與親近度後，系統會自動分配稀有度。</p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">新增這隻浪浪</button>
+          <button type="button" class="btn-ghost" id="resetUpload">清空表單</button>
+        </div>
+        <p class="form-note">🔒 資料只儲存在此瀏覽器的 LocalStorage，不會上傳，也不會出現在其他裝置。此區資料由使用者自行新增，不代表真實認養資訊。</p>
+      </form>
+    </div>
+  </section>
+
   <section class="view collection-view" id="view-collection" hidden>
     <div class="wrap">
       <div class="collection-head">
@@ -703,7 +853,7 @@
 <footer class="footer">
   <div class="wrap footer-inner">
     <p style="margin:0"><b>Pawmon</b> · 台灣浪浪探索圖鑑 — 課程專題 Demo</p>
-    <p style="margin:0">收藏資料只存在你的瀏覽器 LocalStorage，不會上傳。照片來源：Unsplash（示範用）。</p>
+    <p style="margin:0">收藏與新增資料只存在你的瀏覽器 LocalStorage，不會上傳。示範照片來源：Unsplash；自訂資料與圖片由使用者提供。</p>
   </div>
 </footer>
 
@@ -717,6 +867,17 @@
 /* ---------- helpers ---------- */
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+const safeImageUrl = value => {
+  const url = String(value ?? "").trim();
+  if (/^data:image\//i.test(url)) return url;
+  try {
+    const parsed = new URL(url);
+    return /^https?:$/.test(parsed.protocol) ? parsed.href : "";
+  } catch (_) {
+    return "";
+  }
+};
 const photo = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=640&q=70`;
 const CATS = [
   "1518791841217-8f162f1e1131","1574158622682-e40e69881006","1495360010541-f48722b34f7d",
@@ -759,6 +920,21 @@ const RARITIES = {
 };
 const STATUS = "示範角色 · 非真實認養資訊";
 const SOURCE = "Pawmon 示範資料（虛構角色）";
+const CUSTOM_STATUS = "使用者新增 · 僅存於本機";
+const CUSTOM_SOURCE = "Pawmon 使用者本機資料";
+const rarityFor = (cuteness, friendliness) => {
+  const total = Number(cuteness) + Number(friendliness);
+  if (total >= 10) return "SSR";
+  if (total === 9) return "SR";
+  if (total === 8) return "UR";
+  if (total >= 6) return "R";
+  return "N";
+};
+console.assert(
+  rarityFor(5, 5) === "SSR" && rarityFor(4, 5) === "SR" && rarityFor(4, 4) === "UR" &&
+  rarityFor(3, 4) === "R" && rarityFor(2, 3) === "N",
+  "rarityFor thresholds"
+);
 
 /* ---------- demo animals ---------- */
 const ANIMALS = [
@@ -846,15 +1022,50 @@ const RARITY_ORDER = Object.fromEntries(Object.entries(RARITIES).map(([k, v]) =>
 
 /* ---------- persisted state ---------- */
 const STORE_KEY = "pawmon.v1";
+let customAnimals = [];
 let favs = new Set();
 let visited = new Set();
+
+function normalizeCustomAnimal(raw) {
+  if (!raw || typeof raw !== "object") return null;
+  const id = typeof raw.id === "string" && /^U\d{3,6}$/.test(raw.id) ? raw.id : "";
+  const name = String(raw.name ?? "").trim().slice(0, 20);
+  const city = CITIES.some(c => c.name === raw.city) ? raw.city : "";
+  const district = String(raw.district ?? "").trim().slice(0, 10);
+  const description = String(raw.description ?? "").trim().slice(0, 200);
+  const image = safeImageUrl(raw.image);
+  const cuteness = raw.cuteness;
+  const friendliness = raw.friendliness;
+  if (!id || byId.has(id) || !name || !["貓", "狗"].includes(raw.type) || !city || !district || !description || !image) return null;
+  if (!Number.isInteger(cuteness) || cuteness < 1 || cuteness > 5) return null;
+  if (!Number.isInteger(friendliness) || friendliness < 1 || friendliness > 5) return null;
+  return {
+    id, name, type: raw.type, city, district, image, cuteness, friendliness,
+    rarity: rarityFor(cuteness, friendliness), description,
+    status: CUSTOM_STATUS, source: CUSTOM_SOURCE, custom: true
+  };
+}
+
 try {
   const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+  if (Array.isArray(saved.animals)) saved.animals.forEach(raw => {
+    const a = normalizeCustomAnimal(raw);
+    if (!a) return;
+    customAnimals.push(a);
+    ANIMALS.push(a);
+    byId.set(a.id, a);
+  });
   if (Array.isArray(saved.favs)) favs = new Set(saved.favs.filter(id => byId.has(id)));
   if (Array.isArray(saved.visited)) visited = new Set(saved.visited.filter(c => CITIES.some(x => x.name === c)));
 } catch (_) { /* 損毀的舊資料直接忽略 */ }
+
 function save() {
-  try { localStorage.setItem(STORE_KEY, JSON.stringify({ favs: [...favs], visited: [...visited] })); } catch (_) {}
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify({ favs: [...favs], visited: [...visited], animals: customAnimals }));
+    return true;
+  } catch (_) {
+    return false;
+  }
 }
 
 let currentCity = CITIES[0].name;
@@ -867,7 +1078,7 @@ const cityAnimals = city => ANIMALS.filter(a => a.city === city);
 const cityCount = city => cityAnimals(city).length;
 const districtCount = city => new Set(cityAnimals(city).map(a => a.district)).size;
 const dots = n => `<span class="dots" aria-hidden="true">${"●".repeat(n)}<i>${"○".repeat(5 - n)}</i></span>`;
-const mediaHTML = a => `<img src="${a.image}" alt="${a.name}的示範照片" loading="lazy" decoding="async"><span class="img-fallback" aria-hidden="true">${a.type === "貓" ? "🐱" : "🐶"}</span>`;
+const mediaHTML = a => `<img src="${esc(a.image)}" alt="${esc(a.name)}的照片" loading="lazy" decoding="async"><span class="img-fallback" aria-hidden="true">${a.type === "貓" ? "🐱" : "🐶"}</span>`;
 const sortByRarity = list => [...list].sort((a, b) =>
   RARITY_ORDER[a.rarity] - RARITY_ORDER[b.rarity] || b.cuteness - a.cuteness || a.id.localeCompare(b.id)
 );
@@ -875,6 +1086,7 @@ const sortByRarity = list => [...list].sort((a, b) =>
 function renderHome() {
   renderHeroDeck();
   renderMapNodes();
+  $("#statAnimals").textContent = ANIMALS.length;
   // 文字版城市卡已停用，恢復時取消註解
   // renderCityGrid();
 }
@@ -942,7 +1154,7 @@ function renderDistricts() {
   const all = `<button class="chip${filters.district === "全部" ? " active" : ""}" data-district="全部">全部 <small>${list.length}</small></button>`;
   $("#districtChips").innerHTML = all + districts.map(d => {
     const n = list.filter(a => a.district === d).length;
-    return `<button class="chip${filters.district === d ? " active" : ""}" data-district="${d}">${d} <small>${n}</small></button>`;
+    return `<button class="chip${filters.district === d ? " active" : ""}" data-district="${esc(d)}">${esc(d)} <small>${n}</small></button>`;
   }).join("");
 }
 
@@ -957,16 +1169,16 @@ function matchesFilters(a) {
 
 function cardHTML(a) {
   const fav = favs.has(a.id);
-  return `<article class="animal-card rarity-${a.rarity}" data-id="${a.id}" tabindex="0" role="button" aria-label="查看 ${a.name} 的詳細資訊">
+  return `<article class="animal-card rarity-${a.rarity}" data-id="${esc(a.id)}" tabindex="0" role="button" aria-label="查看 ${esc(a.name)} 的詳細資訊">
     <div class="card-media">
       <span class="rarity-chip">${a.rarity}</span>
       ${mediaHTML(a)}
-      <button class="fav-toggle${fav ? " is-fav" : ""}" data-fav="${a.id}" aria-pressed="${fav}" aria-label="${fav ? "取消收藏" : "收藏"}${a.name}">${fav ? "♥" : "♡"}</button>
+      <button class="fav-toggle${fav ? " is-fav" : ""}" data-fav="${esc(a.id)}" aria-pressed="${fav}" aria-label="${fav ? "取消收藏" : "收藏"}${esc(a.name)}">${fav ? "♥" : "♡"}</button>
     </div>
     <div class="card-info">
-      <div class="card-title"><h3>${a.name}</h3><span class="card-no">#${a.id}</span></div>
-      <p class="card-meta"><span>${a.type === "貓" ? "🐱 貓咪" : "🐶 狗狗"}</span><span>📍 ${a.city} · ${a.district}</span></p>
-      <p class="card-desc">${a.description}</p>
+      <div class="card-title"><h3>${esc(a.name)}</h3><span class="card-no">#${esc(a.id)}</span></div>
+      <p class="card-meta"><span>${a.type === "貓" ? "🐱 貓咪" : "🐶 狗狗"}</span><span>📍 ${esc(a.city)} · ${esc(a.district)}</span>${a.custom ? '<span class="custom-tag">本機新增</span>' : ""}</p>
+      <p class="card-desc">${esc(a.description)}</p>
       <div class="card-stats">
         <span title="可愛度 ${a.cuteness} / 5">可愛度 ${dots(a.cuteness)}</span>
         <span title="親近度 ${a.friendliness} / 5">親近度 ${dots(a.friendliness)}</span>
@@ -995,13 +1207,13 @@ function renderCardList() {
 }
 
 function miniCardHTML(a) {
-  return `<article class="mini-card rarity-${a.rarity}" data-id="${a.id}" tabindex="0" role="button" aria-label="查看 ${a.name}">
+  return `<article class="mini-card rarity-${a.rarity}" data-id="${esc(a.id)}" tabindex="0" role="button" aria-label="查看 ${esc(a.name)}">
     <div class="mini-media">
       ${mediaHTML(a)}
-      <button class="fav-toggle is-fav" data-fav="${a.id}" aria-pressed="true" aria-label="取消收藏${a.name}">♥</button>
+      <button class="fav-toggle is-fav" data-fav="${esc(a.id)}" aria-pressed="true" aria-label="取消收藏${esc(a.name)}">♥</button>
     </div>
     <div class="mini-body">
-      <div><h3>${a.name}</h3><p>${a.city} · ${a.district}</p></div>
+      <div><h3>${esc(a.name)}</h3><p>${esc(a.city)} · ${esc(a.district)}</p>${a.custom ? '<span class="custom-tag">本機新增</span>' : ""}</div>
       <span class="rarity-chip">${a.rarity}</span>
     </div>
   </article>`;
@@ -1065,17 +1277,18 @@ function openModal(id) {
         <span class="type-tag">${a.type === "貓" ? "🐱 貓咪" : "🐶 狗狗"}</span>
         <span class="rarity-tag">${a.rarity}</span>
         <span class="type-tag">${RARITIES[a.rarity].hint}</span>
+        ${a.custom ? '<span class="type-tag">本機新增</span>' : ""}
       </div>
-      <h2 id="modalName">${a.name}<span>#${a.id}</span></h2>
-      <p class="modal-loc">📍 ${a.city} · ${a.district}</p>
-      <p class="modal-desc">${a.description}</p>
+      <h2 id="modalName">${esc(a.name)}<span>#${esc(a.id)}</span></h2>
+      <p class="modal-loc">📍 ${esc(a.city)} · ${esc(a.district)}</p>
+      <p class="modal-desc">${esc(a.description)}</p>
       <div class="stat-row"><span class="stat-label">可愛度</span>${dots(a.cuteness)}<b>${a.cuteness} / 5</b></div>
       <div class="stat-row"><span class="stat-label">親近度</span>${dots(a.friendliness)}<b>${a.friendliness} / 5</b></div>
       <div class="info-box">
-        <p><span>認養狀態</span>${a.status}</p>
-        <p><span>資料來源</span>${a.source}</p>
+        <p><span>認養狀態</span>${esc(a.status)}</p>
+        <p><span>資料來源</span>${esc(a.source)}</p>
       </div>
-      <button class="btn-primary fav-large${fav ? " is-fav" : ""}" id="modalFavBtn" data-fav="${a.id}" aria-pressed="${fav}">${fav ? "♥ 已收藏" : "♡ 收藏這隻浪浪"}</button>
+      <button class="btn-primary fav-large${fav ? " is-fav" : ""}" id="modalFavBtn" data-fav="${esc(a.id)}" aria-pressed="${fav}">${fav ? "♥ 已收藏" : "♡ 收藏這隻浪浪"}</button>
       <p class="modal-note">稀有度與評分為網站遊戲化設計，不代表動物價值、領養順序或實際身價。</p>
     </div>`;
   $("#modal").hidden = false;
@@ -1097,6 +1310,7 @@ function showView(name) {
   $("#view-home").hidden = name !== "home";
   $("#view-explore").hidden = name !== "explore";
   $("#view-collection").hidden = name !== "collection";
+  $("#view-upload").hidden = name !== "upload";
   $("#navFavCount").textContent = favs.size;
   $$(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.nav === (name === "explore" ? "map" : name)));
   document.documentElement.scrollTop = 0;
@@ -1113,6 +1327,10 @@ function showCollection() {
   showView("collection");
 }
 
+function showUpload() {
+  showView("upload");
+}
+
 function openCity(city) {
   if (!CITIES.some(c => c.name === city)) return;
   const before = unlockedIds();
@@ -1127,6 +1345,211 @@ function openCity(city) {
   renderMapNodes();
   showView("explore");
   if (isNew) checkAchievements(before);
+}
+
+/* ---------- upload ---------- */
+let uploadMode = "file";
+let uploadObjectUrl = "";
+
+function nextCustomId() {
+  const max = customAnimals.reduce((n, a) => Math.max(n, Number(a.id.slice(1)) || 0), 0);
+  return `U${String(max + 1).padStart(3, "0")}`;
+}
+
+function compressImage(file) {
+  return new Promise((resolve, reject) => {
+    if (!file || !file.type.startsWith("image/")) { reject(new Error("請選擇圖片檔案")); return; }
+    if (file.size > 12 * 1024 * 1024) { reject(new Error("圖片檔案不可超過 12 MB")); return; }
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("圖片讀取失敗"));
+    reader.onload = () => {
+      const img = new Image();
+      img.onerror = () => reject(new Error("無法解讀這張圖片"));
+      img.onload = () => {
+        // shortcut: 800px / JPEG 壓縮足夠本機卡片使用，需要原圖時再改存後端。
+        const scale = Math.min(1, 800 / Math.max(img.naturalWidth, img.naturalHeight));
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(img.naturalWidth * scale));
+        canvas.height = Math.max(1, Math.round(img.naturalHeight * scale));
+        const ctx = canvas.getContext("2d");
+        if (!ctx) { reject(new Error("瀏覽器無法處理圖片")); return; }
+        ctx.fillStyle = "#FFFDF8";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", 0.72));
+      };
+      img.src = String(reader.result);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function setUploadPreview(src) {
+  $("#uploadPreview").innerHTML = src
+    ? `<img src="${esc(src)}" alt="圖片預覽"><span class="img-fallback" aria-hidden="true">🖼️</span>`
+    : `<span class="preview-empty">尚未選擇圖片</span>`;
+}
+
+function clearUploadObjectUrl() {
+  if (uploadObjectUrl) URL.revokeObjectURL(uploadObjectUrl);
+  uploadObjectUrl = "";
+}
+
+function setUploadMode(mode) {
+  uploadMode = mode === "url" ? "url" : "file";
+  $$("[data-img-mode]").forEach(btn => {
+    const on = btn.dataset.imgMode === uploadMode;
+    btn.classList.toggle("active", on);
+    btn.setAttribute("aria-pressed", String(on));
+  });
+  $("#filePane").hidden = uploadMode !== "file";
+  $("#urlPane").hidden = uploadMode !== "url";
+  $("#upFile").disabled = uploadMode !== "file";
+  $("#upFile").required = uploadMode === "file";
+  $("#upUrl").disabled = uploadMode !== "url";
+  $("#upUrl").required = uploadMode === "url";
+  if (uploadMode === "file") {
+    setUploadPreview($("#upFile").files[0] ? uploadObjectUrl : "");
+  } else {
+    setUploadPreview(safeImageUrl($("#upUrl").value));
+  }
+}
+
+function updateDistrictOptions() {
+  const city = $("#upCity").value;
+  const list = city ? [...new Set(cityAnimals(city).map(a => a.district))] : [];
+  $("#districtOptions").innerHTML = list.map(d => `<option value="${esc(d)}"></option>`).join("");
+}
+
+function updateRarityPreview() {
+  const cuteness = $("#upCute").value;
+  const friendliness = $("#upFriend").value;
+  const badge = $("#rarityPreview");
+  if (!cuteness || !friendliness) {
+    badge.className = "rarity-badge";
+    badge.textContent = "—";
+    $("#rarityWhy").textContent = "選好可愛度與親近度後，系統會自動分配稀有度。";
+    return;
+  }
+  const rarity = rarityFor(cuteness, friendliness);
+  badge.className = `rarity-badge rarity-${rarity}`;
+  badge.textContent = rarity;
+  $("#rarityWhy").textContent = `可愛度 ${cuteness} + 親近度 ${friendliness} = ${Number(cuteness) + Number(friendliness)} → ${rarity}（${RARITIES[rarity].name}）`;
+}
+
+function resetUploadForm() {
+  $("#uploadForm").reset();
+  clearUploadObjectUrl();
+  $("#fileName").textContent = "";
+  updateDistrictOptions();
+  setUploadMode("file");
+  updateRarityPreview();
+}
+
+function initUpload() {
+  $("#upCity").innerHTML = `<option value="" disabled selected>請選擇縣市</option>` +
+    CITIES.map(c => `<option value="${c.name}">${c.name}</option>`).join("");
+  const scores = `<option value="" disabled selected>請選擇</option>` +
+    [1, 2, 3, 4, 5].map(n => `<option value="${n}">${n} 分</option>`).join("");
+  $("#upCute").innerHTML = scores;
+  $("#upFriend").innerHTML = scores;
+  updateDistrictOptions();
+  updateRarityPreview();
+  setUploadMode("file");
+
+  $("#upCity").addEventListener("change", updateDistrictOptions);
+  $("#upCute").addEventListener("change", updateRarityPreview);
+  $("#upFriend").addEventListener("change", updateRarityPreview);
+  $("#upUrl").addEventListener("change", () => setUploadPreview(safeImageUrl($("#upUrl").value)));
+  $("#upFile").addEventListener("change", () => {
+    clearUploadObjectUrl();
+    const file = $("#upFile").files[0];
+    if (!file) {
+      $("#fileName").textContent = "";
+      setUploadPreview("");
+      return;
+    }
+    if (!file.type.startsWith("image/")) {
+      $("#upFile").value = "";
+      $("#fileName").textContent = "";
+      setUploadPreview("");
+      showToast(`<span class="toast-icon">⚠️</span><span>請選擇 JPG、PNG 或 WebP 等圖片檔案。</span>`);
+      return;
+    }
+    uploadObjectUrl = URL.createObjectURL(file);
+    $("#fileName").textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(1)} MB`;
+    setUploadPreview(uploadObjectUrl);
+  });
+  $("#uploadForm").addEventListener("submit", handleUpload);
+  $("#resetUpload").addEventListener("click", resetUploadForm);
+}
+
+async function handleUpload(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  if (!form.reportValidity()) return;
+
+  const name = $("#upName").value.trim();
+  const type = $('input[name="upType"]:checked')?.value || "";
+  const city = $("#upCity").value;
+  const district = $("#upDistrict").value.trim();
+  const description = $("#upDesc").value.trim();
+  if (!name || !type || !city || !district || !description) {
+    showToast(`<span class="toast-icon">⚠️</span><span>請完整填寫名稱、類型、出沒地與簡介。</span>`);
+    return;
+  }
+
+  const submit = form.querySelector('[type="submit"]');
+  const label = submit.textContent;
+  submit.disabled = true;
+  submit.textContent = "處理中…";
+  try {
+    let image;
+    if (uploadMode === "file") {
+      const file = $("#upFile").files[0];
+      if (!file) {
+        showToast(`<span class="toast-icon">⚠️</span><span>請選擇一張圖片。</span>`);
+        return;
+      }
+      image = await compressImage(file);
+    } else {
+      image = safeImageUrl($("#upUrl").value);
+      if (!image) {
+        showToast(`<span class="toast-icon">⚠️</span><span>請輸入有效的 https 圖片網址。</span>`);
+        $("#upUrl").focus();
+        return;
+      }
+    }
+
+    const cuteness = Number($("#upCute").value);
+    const friendliness = Number($("#upFriend").value);
+    const animal = {
+      id: nextCustomId(), name, type, city, district, image, cuteness, friendliness,
+      rarity: rarityFor(cuteness, friendliness), description,
+      status: CUSTOM_STATUS, source: CUSTOM_SOURCE, custom: true
+    };
+
+    customAnimals.push(animal);
+    ANIMALS.push(animal);
+    byId.set(animal.id, animal);
+    if (!save()) {
+      customAnimals.pop();
+      ANIMALS.pop();
+      byId.delete(animal.id);
+      showToast(`<span class="toast-icon">⚠️</span><span>本機儲存空間不足，資料未新增。請改用圖片網址或清除瀏覽器資料後再試。</span>`);
+      return;
+    }
+
+    resetUploadForm();
+    openCity(city);
+    clearFilters();
+    showToast(`<span class="toast-icon">✅</span><span>已新增 <b>${esc(name)}</b> 到 ${esc(city)}，資料只存在此瀏覽器。</span>`);
+  } catch (err) {
+    showToast(`<span class="toast-icon">⚠️</span><span>${esc(err.message || "圖片處理失敗")}</span>`);
+  } finally {
+    submit.disabled = false;
+    submit.textContent = label;
+  }
 }
 
 function toggleFav(id) {
@@ -1191,6 +1614,7 @@ function init() {
   }, true);
 
   initFilters();
+  initUpload();
   renderHome();
   showView("home");
 
@@ -1212,11 +1636,15 @@ function init() {
     if (e.target.closest("[data-close]")) { closeModal(); return; }
     if (e.target.id === "modal") { closeModal(); return; }
 
+    const imgMode = e.target.closest("[data-img-mode]");
+    if (imgMode) { setUploadMode(imgMode.dataset.imgMode); return; }
+
     const nav = e.target.closest("[data-nav]");
     if (nav) {
       const target = nav.dataset.nav;
       if (target === "home") showHome();
       else if (target === "collection") showCollection();
+      else if (target === "upload") showUpload();
       else if (target === "map") {
         showHome();
         requestAnimationFrame(() => $("#mapSection").scrollIntoView({ behavior: "smooth", block: "start" }));
